@@ -26,6 +26,11 @@ const ProductInfo = styled.div`
 
 const Image = styled.img`
   width: 200px;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    display: block;
+  }
 `;
 
 const Title = styled.a`
