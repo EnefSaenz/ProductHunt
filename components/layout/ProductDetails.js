@@ -22,11 +22,15 @@ const ProductInfo = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   column-gap: 2rem;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 const Image = styled.img`
   width: 200px;
-  
+  cursor: pointer;
+
   @media (max-width: 768px) {
     width: 100%;
     display: block;
@@ -55,6 +59,7 @@ const Comments = styled.div`
   align-items: center;
   border: 1px solid #e1e1e1;
   padding: 0 1rem;
+  cursor: pointer;
 
   p {
     margin-left: 2rem;
@@ -82,7 +87,9 @@ const ProductDetails = ({ product }) => {
     <Product>
       <ProductInfo>
         <div>
-          <Image src={urlImage} />
+          <Link href={`/products/${id}`} passHref>
+            <Image src={urlImage} />
+          </Link>
         </div>
 
         <div>
@@ -92,10 +99,16 @@ const ProductDetails = ({ product }) => {
 
           <Description>{description}</Description>
 
-          <Comments>
-            <FontAwesomeIcon icon={["far", "comments"]} size="lg" fixedWidth />
-            <p>{comments.length} Comentarios</p>
-          </Comments>
+          <Link href={`/products/${id}`} passHref>
+            <Comments>
+              <FontAwesomeIcon
+                icon={["far", "comments"]}
+                size="lg"
+                fixedWidth
+              />
+              <p>{comments.length} Comentarios</p>
+            </Comments>
+          </Link>
 
           <p>
             Publicado hace:{" "}

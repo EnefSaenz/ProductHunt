@@ -13,6 +13,7 @@ library.add(fas, far);
 
 function MyApp({ Component, pageProps }) {
   const user = useAuthenticator();
+  console.log(FirebaseContext.Provider);
 
   return (
     <FirebaseContext.Provider value={{ firebase, user }}>
